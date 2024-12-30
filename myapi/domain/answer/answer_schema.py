@@ -13,6 +13,7 @@ class AnswerCreate(BaseModel):
         return v
 
 
+
 class Answer(BaseModel):
     id: int
     content: str
