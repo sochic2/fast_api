@@ -15,7 +15,7 @@ pipeline {
                 // Docker Compose 빌드 및 테스트 실행
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE build'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE up -d'
-                sh 'docker-compose -f $DOCKER_COMPOSE_FILE exec web pytest tests/'
+                sh 'docker-compose -f $DOCKER_COMPOSE_FILE exec pytest'
             }
         }
         stage('Deploy') {
