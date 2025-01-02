@@ -1,7 +1,5 @@
 FROM python:3.10-slim
 
-RUN apt-get install -y docker-compose
-
 RUN echo "Asia/Seoul" > /etc/timezone
 
 COPY ./app /app
