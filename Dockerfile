@@ -10,6 +10,8 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN alembic init migrations
+
 RUN alembic revision --autogenerate
 
 RUN alembic upgrade head
