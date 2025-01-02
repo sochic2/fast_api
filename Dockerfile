@@ -14,7 +14,7 @@ RUN alembic init migrations
 
 RUN mv ./tmp/alembic.ini ./alembic.ini
 
-RUN mv ./migrations/env.py ./migrations/env.py
+RUN mv ./tmp/env.py ./migrations/env.py
 
 RUN alembic revision --autogenerate
 
