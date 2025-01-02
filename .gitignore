@@ -3,6 +3,5 @@ app/myapi.db
 *.pyc
 __pycache__
 app/migrations
-app/alembic.ini
 logs
 .deta
