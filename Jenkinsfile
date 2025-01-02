@@ -13,8 +13,10 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Docker Compose 빌드 및 테스트 실행
+                echo 1111111111111111111111111111111
                 sh pwd
                 sh ls -al
+                echo 22222222222222222222222222222222
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE build'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE up -d'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE exec web pytest tests/'
