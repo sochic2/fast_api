@@ -1,7 +1,8 @@
 pipeline {
     agent {
-        label 'any'
-        customWorkspace '/app/fast-api/app'
+        any {
+            customWorkspace '/app/fast-api/app'
+        }
     }
     environment {
         DOCKER_COMPOSE_FILE = '../docker-compose.yml'
