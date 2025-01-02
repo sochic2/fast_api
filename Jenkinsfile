@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        label 'any'
+        customWorkspace '/app/fast-api/app'
+    }
     environment {
         DOCKER_COMPOSE_FILE = '../docker-compose.yml'
     }
@@ -13,10 +16,6 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Docker Compose 빌드 및 테스트 실행
-                echo '11'
-                sh pwd
-                sh ls -al
-                echo '22'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE build'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE up -d'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE exec web pytest tests/'
