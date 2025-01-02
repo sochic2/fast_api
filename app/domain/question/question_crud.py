@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from domain.question.question_schema import QuestionCreate, QuestionUpdate
-from models import Question, User, Answer
+from app.domain.question.question_schema import QuestionCreate, QuestionUpdate
+from app.models import Question, User, Answer
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import Session
 

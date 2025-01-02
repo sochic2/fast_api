@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from starlette import status
 
-from database import get_db
-from domain.question import question_schema, question_crud
-from domain.user.user_router import get_current_user
-from models import User
+from app.database import get_db
+from app.domain.question import question_schema, question_crud
+from app.domain.user.user_router import get_current_user
+from app.models import User
 
 router = APIRouter(
     prefix="/api/question",
@@ -27,7 +27,7 @@ def question_detail(question_id: int, db: Session = Depends(get_db)):
 
 
 @router.post("/create", status_code=status.HTTP_204_NO_CONTENT)
-def question_create(_question_create:question_schema.QuestionCreate,
+def question_create(_question_create: question_schema.QuestionCreate,
                     db: Session = Depends(get_db),
                     current_user: User = Depends(get_current_user)):
     question_crud.create_question(db=db, question_create=_question_create,
