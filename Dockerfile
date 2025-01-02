@@ -12,6 +12,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN alembic init migrations
 
+RUN mv ./tmp/alembic.ini ./alembic.ini
+
+RUN mv ./migrations/env.py ./migrations/env.py
+
 RUN alembic revision --autogenerate
 
 RUN alembic upgrade head
