@@ -32,6 +32,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
+            dir ('/app/fast_api')
             sh 'docker-compose -f $DOCKER_COMPOSE_FILE down || true'
         }
     }
