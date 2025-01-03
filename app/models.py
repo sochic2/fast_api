@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship
 
 from database import Base
 
-
 question_voter = Table(
     'question_voter',
     Base.metadata,

@@ -2,8 +2,8 @@ from datetime import datetime
 
 from sqlalchemy.orm import Session
 
-from app.domain.answer.answer_schema import AnswerCreate, AnswerUpdate
-from app.models import Question, Answer, User
+from domain.answer.answer_schema import AnswerCreate, AnswerUpdate
+from models import Question, Answer, User
 
 
 def create_answer(db: Session, question: Question,
