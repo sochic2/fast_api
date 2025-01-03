@@ -9,6 +9,6 @@ services:
       - "8000:8000"
     working_dir: /app
     volumes:
-      - ./app:/app
-      - ./test:/test
+      - ./app:/app/fast_api/app
+      - ./tests:/app/fast_api/tests
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload

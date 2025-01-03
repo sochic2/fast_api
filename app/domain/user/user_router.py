@@ -7,9 +7,9 @@ from jose import jwt, JWTError
 from sqlalchemy.orm import Session
 from starlette import status
 
-from database import get_db
-from domain.user import user_schema, user_crud
-from domain.user.user_crud import pwd_context
+from app.database import get_db
+from app.domain.user import user_schema, user_crud
+from app.domain.user.user_crud import pwd_context
 
 ACCES_TOKEN_EXPIRE_MINUTES = 60*24
 SECRET_KEY = "44a91c45be4f2274057347c471c25cd82d57491e4c3d88bdf43d873c1e62d909"
