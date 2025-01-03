@@ -34,6 +34,7 @@ pipeline {
         always {
             echo 'Cleaning up...'
             sh 'docker compose -f $DOCKER_COMPOSE_FILE logs'
+            sh 'docker image prune -f'
         }
     }
 }
