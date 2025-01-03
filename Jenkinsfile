@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'docker compose -f $DOCKER_COMPOSE_FILE up -d'
-                sh 'docker compose -f $DOCKER_COMPOSE_FILE exec -T pytest'
+                sh 'docker compose -f $DOCKER_COMPOSE_FILE exec -T fastapi pytest'
                 sh 'docker compose -f $DOCKER_COMPOSE_FILE down'
             }
         }
