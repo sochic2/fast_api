@@ -10,18 +10,22 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/sochic2/fast_api.git'
             }
         }
-        stage('Build and Test') {
+        stage('Build') {
             steps {
                 // Docker Compose 빌드 및 테스트 실행
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE build'
+            }
+        }
+        stage('Test') {
+            steps {
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE up -d'
-                sh 'docker-compose -f $DOCKER_COMPOSE_FILE exec pytest'
+                sh 'docker-compose -f $DOCKER_COMPOSE_FILE exec -T pytest'
+                sh 'docker-compose -f $DOCKER_COMPOSE_FILE down'
             }
         }
         stage('Deploy') {
             steps {
                 // 컨테이너 재시작 또는 배포
-                sh 'docker-compose -f $DOCKER_COMPOSE_FILE down'
                 sh 'docker-compose -f $DOCKER_COMPOSE_FILE up -d'
             }
         }
@@ -29,7 +33,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            sh 'docker-compose -f $DOCKER_COMPOSE_FILE down || true'
+            sh 'docker-compose -f $DOCKER_COMPOSE_FILE logs'
         }
     }
 }
