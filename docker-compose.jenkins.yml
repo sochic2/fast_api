@@ -18,7 +18,7 @@ services:
     working_dir: /app/frontend
     volumes:
       - ./app/frontend:/app/frontend
-    command: npm run build
+    command: npm install && npm run build
 
   nginx:
     image: nginx:stable-perl
