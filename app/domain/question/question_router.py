@@ -8,7 +8,7 @@ from app.domain.user.user_router import get_current_user
 from app.models import User
 
 router = APIRouter(
-    prefix="/question",
+    prefix="/api/question",
 )
 
 @router.get("/list", response_model = question_schema.QuestionList)

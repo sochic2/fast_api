@@ -16,7 +16,7 @@ SECRET_KEY = "44a91c45be4f2274057347c471c25cd82d57491e4c3d88bdf43d873c1e62d909"
 ALGORITHM = "HS256"
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/user/login")
 router = APIRouter(
-    prefix="/user",
+    prefix="/api/user",
 )
 
 
