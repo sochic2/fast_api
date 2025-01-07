@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_COMPOSE_FILE = 'docker-compose.yml'
+        DOCKER_COMPOSE_FILE = 'docker-compose.jenkins.yml'
     }
     stages {
         stage('Checkout') {
@@ -26,7 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // 컨테이너 재시작 또는 배포
-                sh 'docker compose -f $DOCKER_COMPOSE_FILE up -d'
+                sh 'docker compose -f $DOCKER_COMPOSE_FILE up -d nginx fastapi'
             }
         }
     }
