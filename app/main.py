@@ -7,7 +7,7 @@ from app.domain.answer import answer_router
 from app.domain.question import question_router
 from app.domain.user import user_router
 
-app = FastAPI(root_path="/api")
+app = FastAPI(root_path="/api", docs_url = "/api/docs")
 
 app.add_middleware(
     CORSMiddleware,
