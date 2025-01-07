@@ -9,7 +9,7 @@ from app.domain.user.user_router import get_current_user
 from app.models import User
 
 router = APIRouter(
-    prefix="/api/answer"
+    prefix="/answer"
 )
 
 @router.post("/create/{question_id}", status_code=status.HTTP_204_NO_CONTENT)
